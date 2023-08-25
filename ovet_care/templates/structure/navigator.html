@@ -30,8 +30,13 @@
               <li class="nav-item {% if title == 'Contact' %}active{% endif %}">
                 <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
               </li>
+              <li class="nav-item {% if title == 'Login' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('login') }}">Sign In</a>
+              </li>
+              <li class="nav-item {% if title == 'Register' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
+              </li>
             </ul>
-            
           </div>
         </div>
       </nav>

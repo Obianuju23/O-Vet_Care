@@ -55,7 +55,8 @@ body {
 
 /*header section*/
 .hero_area {
-  height: 98vh;
+  /* height: 98vh; */
+  height: auto;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -213,6 +214,7 @@ a:focus {
   position: relative;
   z-index: 2;
   color: #3b3a3a;
+  padding-top: 50px;
   padding-bottom: 90px;
 }
 
@@ -488,6 +490,7 @@ a:focus {
 .contact_section input {
   width: 100%;
   border: none;
+  border-bottom: 1px solid #a19e9ee8;
   height: 50px;
   margin-bottom: 25px;
   padding-left: 25px;
@@ -518,7 +521,7 @@ a:focus {
   height: 120px;
 }
 
-.contact_section button {
+.contact_section button, input[type="submit"] {
   border: none;
   display: inline-block;
   padding: 12px 45px;
@@ -528,7 +531,7 @@ a:focus {
   margin-top: 35px;
 }
 
-.contact_section button:hover {
+.contact_section button:hover, input[type="submit"]:hover {
   background-color: #5625a1;
 }
 
@@ -632,7 +635,7 @@ a:focus {
   opacity: 0.2;
 }
 
-.info_section .info_form form button {
+.info_section .info_form form button, input[type="submit"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -645,9 +648,18 @@ a:focus {
   font-size: 15px;
   text-transform: uppercase;
 }
+button.close{
+  background-color: transparent;
+  padding: none;
+  margin: 0;
+}
 
-.info_section .info_form form button:hover {
+.info_section .info_form form button:hover, input[type="submit"]:hover {
   background-color: #5625a1;
+}
+
+button.close:hover{
+  background-color: transparent;
 }
 
 .info_section .box {
