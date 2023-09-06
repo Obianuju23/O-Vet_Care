@@ -3,5 +3,129 @@
 </div>
 {% include 'structure/slider.html' %}
 
+<!-- about section -->
+<section class="about_section layout_padding">
+	<div class="container">
+	  {% include 'structure/flash.html' %}
+	  <div class="row">
+		<div class="col-md-6">
+		  <div class="detail-box">
+			<div class="heading_container">
+			  <h2>
+				About Us
+			  </h2>
+			  <img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
+			</div>
+			<p>
+			  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+			  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+			  enim ad minim veniam, quis nostrud exercitation ullamco laboris
+			  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+			  in reprehenderit in voluptate velit
+			</p>
+			<a href="{{ url_for('about') }}" alt="See Our Services">Read More...</a>
+		  </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="img_container">
+			<div class="img-box b1">
+			  <img src="{{ url_for('static', filename='images/about-img1.jpg') }}" alt="" />
+			</div>
+			<div class="img-box b2">
+			  <img src="{{ url_for('static', filename='images/about-img2.jpg') }}" alt="" />
+			</div>
+		  </div>
+
+		</div>
+
+	  </div>
+	</div>
+  </section>
+
+  <!-- end about section -->
+<!-- service section -->
+<section class="service_section layout_padding">
+	<div class="container">
+	  {% include 'structure/flash.html' %}
+	  <div class="heading_container">
+		<h2>
+		  Our Services
+		</h2>
+		<img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
+	  </div>
+  
+	  <div class="service_container">
+		<div class="box">
+		  <div class="img-box">
+			<img src="{{ url_for('static', filename='images/s1.png') }}" class="img1" alt="">
+		  </div>
+		  <div class="detail-box">
+			<h5>
+			  Diagnostic and Therapeutic Services
+			</h5>
+			<p>
+			  There are many variations of passages of Lorem Ipsum available,
+			</p>
+		  </div>
+		</div>
+		<div class="box active">
+		  <div class="img-box">
+			<img src="{{ url_for('static', filename='images/s2.png') }}" class="img1" alt="">
+		  </div>
+		  <div class="detail-box">
+			<h5>
+			  Surgical Services:
+			</h5>
+			<p>
+			  There are many variations of passages of Lorem Ipsum available,
+			</p>
+		  </div>
+		</div>
+		<div class="box">
+		  <div class="img-box">
+			<img src="{{ url_for('static', filename='images/s3.png') }}" class="img1" alt="">
+		  </div>
+		  <div class="detail-box">
+			<h5>
+			  Behavioral Counseling
+			</h5>
+			<p>
+			  There are many variations of passages of Lorem Ipsum available,
+			</p>
+		  </div>
+		</div>
+		<div class="box ">
+		  <div class="img-box">
+			<img src="{{ url_for('static', filename='images/s4.png')}}" class="img1" alt="">
+		  </div>
+		  <div class="detail-box">
+			<h5>
+			  Bathing and Grooming
+			</h5>
+			<p>
+			  There are many variations of passages of Lorem Ipsum available,
+			</p>
+		  </div>
+		</div>
+		<div class="box">
+		  <div class="img-box">
+			<img src="{{ url_for('static', filename='images/s5.png')}}" class="img1" alt="">
+		  </div>
+		  <div class="detail-box">
+			<h5>
+			  Emergency Care
+			</h5>
+			<p>
+			  There are many variations of passages of Lorem Ipsum available,
+			</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="btn-box">
+		<a href="{{ url_for('service') }}" alt="See Our Services">Read More...</a>
+	  </div>
+	</div>
+  </section>
+  <!-- end service section -->
 
 {%- endblock -%}
