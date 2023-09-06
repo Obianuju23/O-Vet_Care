@@ -1,59 +1,66 @@
-{% include 'structure/head.html' %}
-{% include 'structure/navigator.html' %}
-{%- block content -%}
+{% include 'structure/head.html' %} {% include 'structure/navigator.html' %} {%-
+block content -%}
 <!-- Register section -->
 
 <section class="contact_section layout_padding">
-    <div class="container ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
         {% include 'structure/flash.html' %}
-      <div class="heading_container">
-        <h2>
-          Sign Up
-        </h2>
-        <img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-            {% include 'structure/flash.html' %}
-          <form action="" method="POST">
-           {{ form.hidden_tag() }}
-            <div>
-                {{ form.firstname.label(class="form-control-label") }}
-                {{ form.firstname() }}
+        <div>
+          <div class="heading_container">
+            <h2 class="head-center">Sign Up</h2>
+            <img
+              src="{{ url_for('static', filename='images/plug.png') }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <form action="" method="POST">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+            {{ form.firstname.label(class="form-control-label") }} {{
+            form.firstname(class="form-control form-control-lg") }}
+          </div>
+          <div class="form-group">
+            {{ form.lastname.label(class="form-control-label") }} {{
+            form.lastname(class="form-control form-control-lg") }}
+          </div>
+          <div class="form-group">
+            {{ form.email.label(class="form-control-label") }} {% if
+            form.email.errors %} {{ form.email(class="form-control
+            form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
             </div>
-            <div>
-                {{ form.lastname.label(class="form-control-label") }}
-                {{ form.lastname() }}
-            </div>
-            <div>
-              {{ form.email.label(class="form-control-label") }}
-              {{ form.email() }}
-            </div>
-            <div>
-               {{ form.password.label(class="form-control-label") }}
-               {{ form.password() }}
-            </div>
-            <div>
-                {{ form.password_confirm.label(class="form-control-label") }}
-                {{ form.password_confirm() }}
-             </div>
-            <div class="d-flex ">
-              {{ form.submit() }}
-            </div>
-          </form>
-          <div class="border-top pt-3">
-            <small class="text-muted">
-              Already have an account? <a href="{{ url_for('login') }}">Sign In</a>
-            </small>
-           </div>
+            {% else %} {{ form.email(class="form-control form-control-lg") }} {%
+            endif %}
+          </div>
+          <div class="form-group">
+            {{ form.password.label(class="form-control-label") }} {{
+            form.password(class="form-control form-control-lg") }}
+          </div>
+          <div class="form-group">
+            {{ form.password_confirm.label(class="form-control-label") }} {{
+            form.password_confirm(class="form-control form-control-lg") }}
+          </div>
+          <div class="form-group">
+            {{ form.submit(class="btn btn-mine btn-block btn-lg") }}
+          </div>
+        </form>
+        <div class="border-top pt-3">
+          <small class="text-muted">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Sign In</a>
+          </small>
         </div>
       </div>
     </div>
-   </section>
-   
-   <!-- end Register section -->
-{%- endblock -%}
-{% include 'structure/info.html' %}
-{% include 'structure/footer.html' %}
+  </div>
+</section>
+
+<!-- end Register section -->
+{%- endblock -%} {% include 'structure/info.html' %} {% include
+'structure/footer.html' %}

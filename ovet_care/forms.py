@@ -5,7 +5,8 @@ and Bootstrap
 """ 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import (DataRequired, Length, Email, EqualTo, ValidationError)
+from ovet_care.models import (Staff, User, Pet, PetBreed, PetType, Services, Transactions)
 
 
 class RegistrationForm(FlaskForm):
@@ -21,7 +22,8 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email ID', validators=[DataRequired(),
                                                       Email()],
                         id='email', name='email')
-    password = PasswordField('Password', validators=[DataRequired()],
+    password = PasswordField('Password', validators=[DataRequired(),
+                                                      Length(min=6, max=20)],
                              id='password', name='password')
     password_confirm = PasswordField('Confirm Password',
                                      validators=[DataRequired(),
@@ -35,7 +37,13 @@ class UserLoginForm(FlaskForm):
     """Class to create Login form"""
     email = StringField('Email ID', validators=[DataRequired(),
                                                       Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(),
+                                                     Length(min=6, max=20)])
     submit = SubmitField('Login')
+    
+    def validate_email(self, email):
+        in_email = User.query.filter_by(email=email.data.lower()).first()
+        if in_email:
+            raise ValidationError('That email ID is already in use.')
     
   

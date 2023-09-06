@@ -42,7 +42,7 @@ def login():
     form = UserLoginForm()
     if form.validate_on_submit():
         flash('Login was successful', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
     return render_template('login.html', title="Login", form=form)
 
 """This is the route to the register page"""
