@@ -2,58 +2,96 @@
 {%- block content -%}
 </div>
  <!-- contact section -->
-
+ <section class="service_section layout_padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md">
+				<div class="service_container">
+					<div class="box">
+					  <div class="img-box">
+						<img src="{{ url_for('static', filename='images/default_male.png') }}" class="img1" alt="Therapy">
+					  </div>
+					  <div class="detail-box">
+						<h5>
+						  Dukeson Ehigboria
+						</h5>
+						<div class="card">
+							<p class="card-title">Project Lead – Backend Development/Database Administration</p>
+							<p class="card-body">
+							  <strong>dukesonehigboria@gmail.com</strong><br><em>+2348138550747</em>
+							</p>
+						</div>
+					  </div>
+					</div>
+					<div class="box">
+					  <div class="img-box">
+						<img src="{{ url_for('static', filename='images/default_female.png') }}" class="img1" alt="Therapy">
+					  </div>
+					  <div class="detail-box">
+						<h5>
+						  Christiana Aghara
+						</h5>
+						<div class="card">
+							<p class="card-title">Frontend Development/System Analyst</p>
+							<p class="card-body">
+							  <strong>obianujunmoh@gmail.com</strong><br><em>+2348127806938</em>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </section>
  <section class="contact_section layout_padding">
   <div class="container ">
-    {% include 'structure/flash.html' %}
-    <div class="heading_container">
-      <h2>
-        Contact Us
-      </h2>
-      <img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
-    </div>
+	{% include 'structure/flash.html' %}
+	<div class="heading_container">
+	  <h2>
+		Contact Us
+	  </h2>
+	  <img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
+	</div>
   </div>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <form action="" method="POST">
-          <input id="csrf_token" name="csrf_token" type="hidden"
-            value="ImM1ZjQ2ZTBmNWU0MzZjNmFmNTFmZjZhZTFmOTg1ZDY5NWNiN2I1ODki.ZPgB-Q.z7H8YmoXuFHrOqGWVoeYHfvqVcA">
-          <div class="form-group">
-            <label class="form-control-label" for="name">Full Name</label>
-            <input placeholder="Full Name" class="form-control form-control-lg" id="name" name="name" required
-              type="text" value="">
-          </div>
-          <div class="form-group">
-            <label class="form-control-label" for="email">Email ID</label>
-            <input placeholder="Email ID" class="form-control form-control-lg" id="email" name="email" required
-              type="text" value="">
-          </div>
-          <div class="form-group">
-            <label class="form-control-label" for="telephone">Phone Number</label>
-            <input placeholder="Phone Number" class="form-control form-control-lg" id="telephone" name="telephone"
-              required type="tel" value="">
-          </div>
-          <div class="form-group">
-            <label class="form-control-label" for="message">Your Message</label>
-            <textarea name="message" id="message" required class="form-control form-control-lg"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="button" class="btn btn-mine btn-block btn-lg" value="SEND">
-          </div>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <div class="map_container">
-          <div class="map-responsive">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2024819.3820652696!2d5.642888522934689!3d7.604837512752285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAsaba%20Airport!5e0!3m2!1sen!2sng!4v1691679592555!5m2!1sen!2sng"
-              width="600" height="300" style="border:0; width: 100%; height:100%;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="row">
+	  <div class="col-md-6">
+		<form action="" method="POST">
+		  <div class="form-group">
+			<label class="form-control-label" for="name">Full Name</label>
+			<input placeholder="Full Name" class="form-control form-control-lg" id="name" name="name" required
+			  type="text" value="">
+		  </div>
+		  <div class="form-group">
+			<label class="form-control-label" for="email">Email ID</label>
+			<input placeholder="Email ID" class="form-control form-control-lg" id="email" name="email" required
+			  type="text" value="">
+		  </div>
+		  <div class="form-group">
+			<label class="form-control-label" for="telephone">Phone Number</label>
+			<input placeholder="Phone Number" class="form-control form-control-lg" id="telephone" name="telephone"
+			  required type="tel" value="">
+		  </div>
+		  <div class="form-group">
+			<label class="form-control-label" for="message">Your Message</label>
+			<textarea name="message" id="message" required class="form-control form-control-lg" placeholder="Your Message"></textarea>
+		  </div>
+		  <div class="form-group">
+			<input type="button" class="btn btn-mine btn-block btn-lg" value="SEND">
+		  </div>
+		</form>
+	  </div>
+	  <div class="col-md-6">
+		<div class="map_container">
+		  <div class="map-responsive">
+			<iframe
+			  src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2024819.3820652696!2d5.642888522934689!3d7.604837512752285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAsaba%20Airport!5e0!3m2!1sen!2sng!4v1691679592555!5m2!1sen!2sng"
+			  width="600" height="300" style="border:0; width: 100%; height:100%;" allowfullscreen="" loading="lazy"
+			  referrerpolicy="no-referrer-when-downgrade"></iframe>
+		  </div>
+		</div>
+	  </div>
+	</div>
 </section>
 
 <!-- end contact section -->

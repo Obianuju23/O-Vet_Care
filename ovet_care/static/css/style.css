@@ -4,6 +4,10 @@ body {
   background-color: #ffffff;
 }
 
+img#logo-site {
+  color: #4b208c;
+}
+
 .layout_padding {
   padding-top: 90px;
   padding-bottom: 90px;
@@ -334,7 +338,7 @@ a:focus {
 }
 
 .service_section .service_container .box .img-box img {
-  width: 90px;
+  width: 150px;
 }
 
 .service_section .service_container .box .detail-box {

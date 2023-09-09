@@ -1,43 +1,41 @@
 {% extends 'base_layout.html' %}
 {%- block content -%}
 </div>
-  <!-- about section -->
-  <section class="about_section layout_padding">
-    <div class="container">
-      {% include 'structure/flash.html' %}
-      <div class="row">
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                About Us
-              </h2>
-              <img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="img_container">
-            <div class="img-box b1">
-              <img src="{{ url_for('static', filename='images/about-img1.jpg') }}" alt="" />
-            </div>
-            <div class="img-box b2">
-              <img src="{{ url_for('static', filename='images/about-img2.jpg') }}" alt="" />
-            </div>
-          </div>
+	<!-- about section -->
+	<section class="about_section layout_padding">
+		<div class="container">
+			{% include 'structure/flash.html' %}
+			<div class="row">
+				<div class="col-md-6">
+					<div class="detail-box">
+						<div class="heading_container">
+							<h2>
+								About Us
+							</h2>
+							<img src="{{ url_for('static', filename='images/plug.png') }}" alt="">
+						</div>
+						<p>Welcome to <strong>O-Vet Care&reg;</strong>. We are a team of Veterinary Doctors from around the African continent, creating a better life for pets and pet owners as well as grooming and catering for pets that will become less worries for people around. Within our little sphere of operation, millions of people around the world connect, both online and offline, to create a comfortable life for their pet(s).</p>
+						<p>At <strong>O-Vet Care&reg;</strong>, we are committed to delivering to our customers exceptional value with unbeatable offers. We relentlessly pursue sourcing the best product in the industry ensuring that pet owners can access premium breeds such as Royal Canin, MSD Animal Health, Animology, Petmate, K9 Power, Pedigree, etc.</p>
+						<p>At <strong>O-Vet Care&reg;</strong>, our driving force is to empower pet owners with instant access to reliable pet health information, conform and maintain our Integrity as <em>every piece of information on <strong>O-Vet Care&reg;</strong> is vetted and based on sound veterinary practices.</em>
+						<p>At <strong>O-Vet Care&reg;</strong>, we understand the deep bond between pets and their owners. That's why we approach every schedule with empathy, and as well, we believe in the power of community. Whether it's through shared stories, advice, or support, <strong>O-Vet Care&reg;</strong> aims to foster a sense of belonging among all its users.</p>
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="img_container">
+						<div class="img-box b1">
+							<img src="{{ url_for('static', filename='images/about-img1.jpg') }}" alt="" />
+						</div>
+						<div class="img-box b2">
+							<img src="{{ url_for('static', filename='images/about-img2.jpg') }}" alt="" />
+						</div>
+					</div>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
-  </section>
+			</div>
+		</div>
+	</section>
 
-  <!-- end about section -->
+	<!-- end about section -->
 {%- endblock -%}
