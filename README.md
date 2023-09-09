@@ -84,7 +84,7 @@ We have the following dependencies saved in a file called requirements.txt:
 - WTForms==3.0.0
 - zipp==3.6.0
 
-> this was achieved using 
+> this was achieved using
 >
 > ```shell
 > (.ovetcare) /home/nerd $ pip freeze > requirements.txt
@@ -106,12 +106,11 @@ To install all these requirements do the following:
 (.ovetcare) /home/nerd $ pip install -r requirements.txt
 ```
 
-
 ## RUNNING THE APPLICATION
 
 To run the O-Vet Care application using command line, do the following:
 
-> ### Step One:
+> ### Step One
 >
 >  ```shell
 >  (.ovetcare) /home/nerd $ python app.py
@@ -119,7 +118,7 @@ To run the O-Vet Care application using command line, do the following:
 >
 > OR
 >
->  ### Step Two:
+>## Step Two
 >
 > ```shell
 > (.ovetcare) /home/nerd $ FLASK_APP=app.py
@@ -144,3 +143,30 @@ To run the O-Vet Care application using command line, do the following:
 > ```
 
 O-Vet Care is a user-friendly and responsive website that can be accesesed from any mdigital device (Desktops, Laptops, iPads, Smartphones and Smart-Tvs).
+
+***Find below Some Shots***
+
+<p>
+<img src="https://github.com/Sampul-CodeMine/O-Vet_Care/blob/master/shots/index.PNG" alt="Index Page | Home Page">
+</p>
+<p>
+<img src="https://github.com/Sampul-CodeMine/O-Vet_Care/blob/master/shots/about.PNG" alt="About Page">
+</p>
+<p>
+<img src="https://github.com/Sampul-CodeMine/O-Vet_Care/blob/master/shots/contact.PNG" alt="Contact Page">
+</p>
+<p>
+<img src="https://github.com/Sampul-CodeMine/O-Vet_Care/blob/master/shots/services.PNG" alt="Services Page">
+</p>
+
+---
+
+## AUTHORS
+
+> Dukeson Ehigboria - [Github](https://github.com/Sampul-CodeMine) / [Twitter](https://twitter.com/Sampul_CodeMine)
+>
+> Christiana Aghara - [Github](https://github.com/Obianuju23) / [Gmail](obianujunmoh@gmail.com)
+
+## License
+
+Public Domain. No copy write protection.
