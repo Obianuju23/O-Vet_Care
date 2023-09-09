@@ -5,8 +5,10 @@ and Bootstrap
 """ 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import (DataRequired, Length, Email, EqualTo, ValidationError)
-from ovet_care.models import (Staff, User, Pet, PetBreed, PetType, Services, Transactions)
+from wtforms.validators import (DataRequired, Length, Email, EqualTo,
+                                ValidationError)
+from ovet_care.models import (Staff, User, Pet, PetBreed, PetType, Services,
+                              Transactions)
 
 
 class RegistrationForm(FlaskForm):
