@@ -3,9 +3,10 @@
 This is a module that creates routes for the O-Vet Care Web application
 """
 from flask import url_for, render_template, request, redirect, flash
-from ovet_care import app
+from ovet_care import app, db, bcrypt
 from ovet_care.forms import RegistrationForm, UserLoginForm
 from ovet_care.models import Staff, User, Pet, PetType, PetBreed
+from flask_login import login_user, logout_user
 
 
 """This is the route to the index or Landing page"""
@@ -41,8 +42,12 @@ def login():
     """Function to route to the login page when the /login route is hit"""
     form = UserLoginForm()
     if form.validate_on_submit():
-        flash('Login was successful', 'success')
-        return redirect(url_for('home'))
+        user = User.query.filter_by(email=form.email.data.lower()).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user)
+            return redirect(url_for('home'))
+        else:
+            flash('Login was not successful. Invalid email/password.', 'danger')
     return render_template('login.html', title="Login", form=form)
 
 """This is the route to the register page"""
@@ -52,6 +57,14 @@ def register():
     hit"""
     form = RegistrationForm()
     if form.validate_on_submit():
+        hash_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(firstname=form.firstname.data.title(),
+                    lastname=form.lastname.data.title(),
+                    email=form.email.data.lower(),
+                    phone_num=form.phone_num.data,
+                    password=hash_password)
+        db.session.add(user)
+        db.session.commit()
         flash('Registration was successful', 'success')
-        return redirect(url_for('register'))
+        return redirect(url_for('login'))
     return render_template('register.html', title="Register", form=form)

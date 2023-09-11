@@ -3,11 +3,17 @@
 This is a module that creates Our Databases for the O-Vet Care Web application
 """
 from datetime import datetime as dt
-from uuid import uuid4 as uid
-from ovet_care import app, db
+from ovet_care import app, db, login_manager
+from flask_login import UserMixin
 
 
-class Staff(db.Model):
+@login_manager.user_loader
+def load_user(uid):
+    """a decorative function to load a user's details"""
+    return User.query.get(int(uid))
+
+
+class Staff(db.Model, UserMixin):
     """This is a class to create the Staff database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     st_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -23,7 +29,7 @@ class Staff(db.Model):
         return f'Staff("{self.st_id}", "{self.email}", "{self.is_active}")'
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     """This is a class to create the User database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     u_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -31,7 +37,7 @@ class User(db.Model):
     lastname = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
-    phone_num = db.Column(db.String(11), nullable=False)
+    phone_num = db.Column(db.String(11), unique=True, nullable=False)
     avatar = db.Column(db.String(20), nullable=False, default='default.png')
     created = db.Column(db.DateTime, nullable=False, default=dt.utcnow)
     is_active = db.Column(db.Integer, nullable=False, default=0)
@@ -42,7 +48,7 @@ class User(db.Model):
         return f'User("{self.u_id}", "{self.email}", "{self.created}")'
 
 
-class PetType(db.Model):
+class PetType(db.Model, UserMixin):
     """This is a class to create the PetType database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     pt_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -53,7 +59,7 @@ class PetType(db.Model):
         return f'Pet Type("{self.pt_id}", "{self.name}")'
 
 
-class PetBreed(db.Model):
+class PetBreed(db.Model, UserMixin):
     """This is a class to create the PetBreed database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     pb_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -65,7 +71,7 @@ class PetBreed(db.Model):
         return f'Pet Breed("{self.pb_id}", "{self.name}")'
 
 
-class Pet(db.Model):
+class Pet(db.Model, UserMixin):
     """This is a class to create the Pet database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     p_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -79,7 +85,7 @@ class Pet(db.Model):
         return f'Pet("{self.p_id}", "{self.name}")'
     
     
-class Services(db.Model):
+class Services(db.Model, UserMixin):
     """This is a class to create the Services database using Python's Flask
     SQLAlchemy ORM using the db.model module"""
     s_id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -92,7 +98,7 @@ class Services(db.Model):
         return f'Services("{self.s_id}", "{self.name}", "{self.cost}")'
     
 
-class Transactions(db.Model):
+class Transactions(db.Model, UserMixin):
     """This is a class to create the Transactions database using Python's
     Flask SQLAlchemy ORM using the db.model module"""
     tran_id = db.Column(db.Integer, primary_key=True, nullable=False)

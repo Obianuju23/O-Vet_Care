@@ -477,7 +477,7 @@ a:focus {
 
 .contact_section form {
   margin-top: 45px;
-  padding-right: 35px;
+  /* padding-right: 35px; */
 }
 .contact_section textarea {
   resize: none;

@@ -15,15 +15,19 @@ class RegistrationForm(FlaskForm):
     """Class to create User Registration form"""
     firstname = StringField('First Name',
                                   validators=[DataRequired(),
-                                              Length(min=3, max=32)],
+                                              Length(min=2, max=32)],
                                   id='firstname', name='firstname')
     lastname = StringField('Last Name',
                                   validators=[DataRequired(),
-                                              Length(min=3, max=32)],
+                                              Length(min=2, max=32)],
                                   id='lastname', name='lastname')
     email = StringField('Email ID', validators=[DataRequired(),
                                                       Email()],
                         id='email', name='email')
+    phone_num = StringField('Phone Number',
+                            validators=[DataRequired(), Length(min=11,
+                                                               max=11)],
+                            id='phone_num', name='phone_num')
     password = PasswordField('Password', validators=[DataRequired(),
                                                       Length(min=6, max=20)],
                              id='password', name='password')
@@ -34,6 +38,20 @@ class RegistrationForm(FlaskForm):
                                      name='password_confirm')
     submit = SubmitField('Register')
     
+    def validate_email(self, email):
+        """This is an instance method that validates an email entered from the
+        forms input fields"""
+        user_email = User.query.filter_by(email=email.data).first()
+        if user_email:
+            raise ValidationError('The email provided is already taken.')
+        
+    def validate_phone_num(self, phone):
+        """This is an instance method that validates a phone number
+        entered from the forms input fields"""
+        user_phone = User.query.filter_by(phone_num=phone.data).first()
+        if user_phone:
+            raise ValidationError('The phone number provided is already in use.')
+    
     
 class UserLoginForm(FlaskForm):
     """Class to create Login form"""
@@ -41,11 +59,5 @@ class UserLoginForm(FlaskForm):
                                                       Email()])
     password = PasswordField('Password', validators=[DataRequired(),
                                                      Length(min=6, max=20)])
-    submit = SubmitField('Login')
-    
-    def validate_email(self, email):
-        in_email = User.query.filter_by(email=email.data.lower()).first()
-        if in_email:
-            raise ValidationError('That email ID is already in use.')
-    
+    submit = SubmitField('Login')    
   

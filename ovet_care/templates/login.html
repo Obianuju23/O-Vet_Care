@@ -29,7 +29,7 @@
 							{% endfor %}
 						</div>
 						{% else %}
-						{{ form.email(class="form-control form-control-lg") }}
+						{{ form.email(class="form-control form-control-lg", placeholder="Email ID") }}
 						{% endif %}
 					</div>
 					<div class="form-group">
@@ -42,11 +42,14 @@
 									{% endfor %}
 								</div>
 						{% else %}
-							{{ form.password(class="form-control form-control-lg") }}
+							{{ form.password(class="form-control form-control-lg", placeholder="Password") }}
 						{% endif %}
 					</div>
 					<div class="form-group">
 						{{ form.submit(class="btn btn-mine btn-block btn-lg") }}
+						<div class="mt-4">
+							<small class="text-muted"><a href="#">Forgot Password?</a></small>
+						</div>
 					</div>
 				</form>
 				<div class="border-top pt-3">
