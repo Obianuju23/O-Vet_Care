@@ -1,4 +1,4 @@
-"""This is a package for the O-Vet Care Application
+"""This package is for the O-Vet Care Application
 """
 from ovet_care import app
 
