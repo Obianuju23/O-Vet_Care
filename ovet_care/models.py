@@ -99,7 +99,7 @@ class Services(db.Model, UserMixin):
     
 
 class Transactions(db.Model, UserMixin):
-    """This is a class to create the Transactions database using Python's
+    """This class creates the Transactions database using Python's
     Flask SQLAlchemy ORM using the db.model module"""
     tran_id = db.Column(db.Integer, primary_key=True, nullable=False)
     tran_p_owner = db.Column(db.Integer, db.ForeignKey('user.u_id'),
