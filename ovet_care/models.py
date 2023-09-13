@@ -3,14 +3,8 @@
 This is a module that creates Our Databases for the O-Vet Care Web application
 """
 from datetime import datetime as dt
-from ovet_care import app, db, login_manager
+from ovet_care import db, login_manager
 from flask_login import UserMixin
-
-
-@login_manager.user_loader
-def load_user(uid):
-    """a decorative function to load a user's details"""
-    return User.query.get(int(uid))
 
 
 class Staff(db.Model, UserMixin):
@@ -46,6 +40,12 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         '''Representation of the User class when an instance is displayed'''
         return f'User("{self.u_id}", "{self.email}", "{self.created}")'
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    """a decorative function to load a user's details"""
+    return User.query.get(int(user_id))
 
 
 class PetType(db.Model, UserMixin):

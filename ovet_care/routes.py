@@ -2,11 +2,11 @@
 """
 This is a module that creates routes for the O-Vet Care Web application
 """
-from flask import url_for, render_template, request, redirect, flash
+from flask import render_template, url_for, redirect, flash, request
 from ovet_care import app, db, bcrypt
 from ovet_care.forms import RegistrationForm, UserLoginForm
-from ovet_care.models import Staff, User, Pet, PetType, PetBreed
-from flask_login import login_user, logout_user
+from ovet_care.models import User
+from flask_login import login_user, current_user
 
 
 """This is the route to the index or Landing page"""
@@ -36,25 +36,14 @@ def contact():
     """Function to route to the contact page when the /contact route is hit"""
     return render_template('contact.html', title="Contact")
 
-"""This is the route to the login page"""
-@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
-def login():
-    """Function to route to the login page when the /login route is hit"""
-    form = UserLoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data.lower()).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user)
-            return redirect(url_for('home'))
-        else:
-            flash('Login was not successful. Invalid email/password.', 'danger')
-    return render_template('login.html', title="Login", form=form)
 
 """This is the route to the register page"""
 @app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
 def register():
     """Function to route to the register page when the /register route is
     hit"""
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hash_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -68,3 +57,20 @@ def register():
         flash('Registration was successful', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title="Register", form=form)
+
+
+"""This is the route to the login page"""
+@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+def login():
+    """Function to route to the login page when the /login route is hit"""
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = UserLoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data.lower()).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            return redirect(url_for('home'))
+        else:
+            flash('Login was not successful. Invalid email/password.', 'danger')
+    return render_template('login.html', title="Login", form=form)

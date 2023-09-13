@@ -10,7 +10,7 @@ from flask_login import LoginManager
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '22a07440b93fa21f25c365c42ae66690596b4dfe9d99adffedd0acc2fffe6f74'
+app.config['SECRET_KEY'] = 'bd9871480ae99514e8f0e3f1f4e0e101'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ovet_care.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
