@@ -4,7 +4,7 @@ This is a module that handles creation of forms using Python's WTF library
 and Bootstrap
 """ 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import (DataRequired, Length, Email, EqualTo,
                                 ValidationError)
 from ovet_care.models import (Staff, User, Pet, PetBreed, PetType, Services,
@@ -59,5 +59,6 @@ class UserLoginForm(FlaskForm):
                                                       Email()])
     password = PasswordField('Password', validators=[DataRequired(),
                                                      Length(min=6, max=20)])
+    remember = BooleanField('Remember Me')
     submit = SubmitField('Login')    
   
